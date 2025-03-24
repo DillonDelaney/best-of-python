@@ -1,0 +1,10 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://en.wikipedia.org/wiki/Cat"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Find a headline
+headline = soup.find('h1').text
+print("Headline:", headline)
